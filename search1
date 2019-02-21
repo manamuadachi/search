@@ -1,0 +1,84 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+
+<title>template</title>
+
+
+
+</head>
+
+<body>
+
+<header>
+
+<div class="header-contents">
+
+<h1>検索ツール</h1>
+
+<h2>特定の文字の出現回数を検索します</h2>
+
+</div><!-- /.header-contents -->
+</header>
+<div class="main-wrapper">
+
+<section>
+
+
+	<form action="#" id="form2">
+		<input type="text" name="word2">
+		<input type="submit" value="文の入力">
+	</form>
+	<p id="output2"></p>
+
+	<form action="#" id="form">
+		<input type="text" name="word">
+		<input type="submit" value="検索">
+	</form>
+	<p id="output"></p>
+	<p id="output3"></p>
+
+</section>
+
+</div><!-- /.main-wrapper -->
+
+<footer>JavaScriptをいじってみた</footer>
+
+<script>
+document.getElementById('form2').onsubmit = function(){
+	search2 = document.getElementById('form2').word2.value;
+	document.getElementById('output2').textContent = '『'+search2+'』を入力しました...';
+	return false;
+};
+
+document.getElementById('form').onsubmit = function(){
+	var search = document.getElementById('form').word.value;
+	document.getElementById('output').textContent = '『'+search+'』の検索中...';
+
+	var result = search2.match(search);
+	var count = (search2.match( new RegExp( search, "g" ) ) || [] ).length ;
+if (result != null){
+	document.getElementById('output3').textContent = ''+count+'回出現しました。';
+}else{
+	document.getElementById('output3').textContent = '出現しませんでした。';
+}
+
+
+	return false;
+};
+
+
+
+
+</script>
+</body>
+
+</html>
